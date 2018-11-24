@@ -249,6 +249,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/VirmachVPS/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fr Zachary">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="公孙瓒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/16/VirmachVPS/" itemprop="url">运用Virmach搭建VPS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T10:15:53+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/科学上网/" itemprop="url" rel="index">
+                    <span itemprop="name">科学上网</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="事先安装"><a href="#事先安装" class="headerlink" title="事先安装"></a>事先安装</h1><ol>
+<li>1.安装Xshell<br>一款安全终端模拟软件，可以在Windows界面下用来访问远端不同系统下的服务器，从而比较好的达到远程控制终端的目的。<br>百度云盘下载：<a href="https://pan.baidu.com/s/1ZzWNCK1L0lNx4LKr-bYKVw" target="_blank">提取码：9s7m</a></li>
+<li>2.本地安装shadowsocks管理软件<br>一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种传输包。<br>百度云盘下载：<a href="https://pan.baidu.com/s/1_e2kvJUYFNRvPy7xXndFRA" target="_blank">提取码：ci0y</a></li>
+</ol>
+<h1 id="Virmach服务器选择"><a href="#Virmach服务器选择" class="headerlink" title="Virmach服务器选择"></a>Virmach服务器选择</h1><blockquote>
+<p>本文只作教学使用，并不是一定推荐购买、购买时请根据自身需求而定<br>服务器购买地址：<a href="https://doub.io/go/virmach-kvm/" target="_blank">Virmach</a><br>选择购买$1.00 USD Monthly 的服务器（类型：OpenVZ Linux VPS）</p>
+<ol start="2">
+<li>1.服务器地址选择Select Location ： Los Angeles,CA</li>
+<li>2.服务器系统选择Operating System ： Ubuntu 14.04 x64</li>
+<li>3.勾选”Limited Support Agreement”—–&gt;&gt;&gt; Check out</li>
+</ol>
+</blockquote>
+<h1 id="填写你的个人信息"><a href="#填写你的个人信息" class="headerlink" title="填写你的个人信息"></a>填写你的个人信息</h1><ol start="3">
+<li>1.注意点：这里所填写的信息只是登陆该服务器网站的个人信息</li>
+<li>2.在选择使用  支付宝  支付时，应该是处于  非VPN 状态下；否则网站会认为该次交易是非真实的</li>
+</ol>
+<h1 id="配置服务器"><a href="#配置服务器" class="headerlink" title="配置服务器"></a>配置服务器</h1><ol start="4">
+<li>1.在购买完成后，点击Services进入到服务器中</li>
+<li>2.修改root密码的同时记录下你的IP （Main IP Address）</li>
+<li>3.打开事先安装好的  “Xshell”  ；新建会话属性—》填写服务器IP—》点击确定后—》填写SSH用户名（root）—》填写SSH用户密码（root 密码）<h2 id="本人其他博客欢迎到访"><a href="#本人其他博客欢迎到访" class="headerlink" title="本人其他博客欢迎到访"></a>本人其他博客欢迎到访</h2></li>
+</ol>
+<h1 id="转载声明"><a href="#转载声明" class="headerlink" title="转载声明"></a>转载声明</h1><p>本博客绝大部分文章均来源于互联网，通过本人收集、整理、实践从而形成总结；转载时请注明原链接即可。</p>
+<h1 id="特别声明"><a href="#特别声明" class="headerlink" title="特别声明"></a>特别声明</h1><p>本人在此发布博文（包括但不限于汉字、拼音、阿拉伯字母 、图片、影像，以及前述之各种任意组合等等）均为随意敲击键盘所出，用于检验本人电脑键盘录入、屏幕显示的机械、光电性能，并不代表本人观点。如需要详查请直接与键盘发明者及生产厂商法人代表联系。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/hello-hexo/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -592,7 +756,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -603,7 +767,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -614,7 +778,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
