@@ -252,6 +252,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/28/PHP-Study1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fr Zachary">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blog-logo-2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="超级赞">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/28/PHP-Study1/" itemprop="url">PHP-匿名函数的 use()</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T14:26:30+08:00">
+                2018-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/28/PHP-Study1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/28/PHP-Study1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="匿名函数的-use"><a href="#匿名函数的-use" class="headerlink" title="匿名函数的 use()"></a>匿名函数的 use()</h1><blockquote>
+<p>匿名函数的作用域和普通函数是一样的，函数内部不能访问函数外部的变量，匿名函数中的use()可以将匿名函数外的变量引入到匿名函数内部。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  $num=10;</span><br><span class="line">  $fun=function() use ($num)&#123;</span><br><span class="line">    echo $num;</span><br><span class="line">  &#125;;</span><br><span class="line">  $fun();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>输出结果为：10</p>
+</blockquote>
+<blockquote>
+<p>结论： use()引入和匿名函数所在同一作用域的变量</p>
+</blockquote>
+<h2 id="use-的传值和传址"><a href="#use-的传值和传址" class="headerlink" title="use()的传值和传址"></a>use()的传值和传址</h2><p>默认情况下，use()是传值的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  $num=20;</span><br><span class="line">  $fun=function() use($num)&#123;</span><br><span class="line">      $num++;</span><br><span class="line">      echo $num,&apos;&lt;br&gt;&apos;;</span><br><span class="line">  &#125;;</span><br><span class="line">  $fun();</span><br><span class="line">  echo $num;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>上述”传值”例子 输出结果为：21   20 </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  $num=20;</span><br><span class="line">  $fun=function() use(&amp;$num)&#123;</span><br><span class="line">      $num++;</span><br><span class="line">      echo $num,&apos;&lt;br&gt;&apos;;</span><br><span class="line">  &#125;;</span><br><span class="line">  $fun();</span><br><span class="line">  echo $num;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上述”传地址”例子 输出结果为：21   21 </p>
+</blockquote>
+<h2 id="匿名函数的作用"><a href="#匿名函数的作用" class="headerlink" title="匿名函数的作用"></a>匿名函数的作用</h2><blockquote>
+<p>适合建立一个临时函数，用完以后可以销毁，如果一个函数只需要执行一次就可以声明成匿名函数。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/VirmachVPS/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -785,7 +956,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -796,7 +967,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -807,7 +978,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
