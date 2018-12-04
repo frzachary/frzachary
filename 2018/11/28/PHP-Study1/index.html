@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="超级赞">
 <meta property="og:description" content="匿名函数的 use() 匿名函数的作用域和普通函数是一样的，函数内部不能访问函数外部的变量，匿名函数中的use()可以将匿名函数外的变量引入到匿名函数内部。1234567&amp;lt;?php  $num=10;  $fun=function() use ($num)&amp;#123;    echo $num;  &amp;#125;;  $fun();?&amp;gt;   输出结果为：10   结论： use()引入和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-28T09:32:30.025Z">
+<meta property="og:updated_time" content="2018-11-29T02:22:43.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP-匿名函数的 use()">
 <meta name="twitter:description" content="匿名函数的 use() 匿名函数的作用域和普通函数是一样的，函数内部不能访问函数外部的变量，匿名函数中的use()可以将匿名函数外的变量引入到匿名函数内部。1234567&amp;lt;?php  $num=10;  $fun=function() use ($num)&amp;#123;    echo $num;  &amp;#125;;  $fun();?&amp;gt;   输出结果为：10   结论： use()引入和">
@@ -357,16 +357,16 @@
       
 
       
-        <h1 id="匿名函数的-use"><a href="#匿名函数的-use" class="headerlink" title="匿名函数的 use()"></a>匿名函数的 use()</h1><blockquote>
+        <h1 id="匿名函数的-use"><a href="#匿名函数的-use" class="headerlink" title="匿名函数的 use()"></a>匿名函数的 <code>use()</code></h1><blockquote>
 <p>匿名函数的作用域和普通函数是一样的，函数内部不能访问函数外部的变量，匿名函数中的use()可以将匿名函数外的变量引入到匿名函数内部。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  $num=10;</span><br><span class="line">  $fun=function() use ($num)&#123;</span><br><span class="line">    echo $num;</span><br><span class="line">  &#125;;</span><br><span class="line">  $fun();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>输出结果为：10</p>
 </blockquote>
 <blockquote>
-<p>结论： use()引入和匿名函数所在同一作用域的变量</p>
+<p>结论： <code>use()</code>引入和匿名函数所在同一作用域的变量</p>
 </blockquote>
-<h2 id="use-的传值和传址"><a href="#use-的传值和传址" class="headerlink" title="use()的传值和传址"></a>use()的传值和传址</h2><p>默认情况下，use()是传值的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  $num=20;</span><br><span class="line">  $fun=function() use($num)&#123;</span><br><span class="line">      $num++;</span><br><span class="line">      echo $num,&apos;&lt;br&gt;&apos;;</span><br><span class="line">  &#125;;</span><br><span class="line">  $fun();</span><br><span class="line">  echo $num;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="use-的传值和传址"><a href="#use-的传值和传址" class="headerlink" title="use()的传值和传址"></a><code>use()</code>的传值和传址</h2><p>默认情况下，use()是传值的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  $num=20;</span><br><span class="line">  $fun=function() use($num)&#123;</span><br><span class="line">      $num++;</span><br><span class="line">      echo $num,&apos;&lt;br&gt;&apos;;</span><br><span class="line">  &#125;;</span><br><span class="line">  $fun();</span><br><span class="line">  echo $num;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>上述”传值”例子 输出结果为：21   20 </p>
 </blockquote>
@@ -387,8 +387,14 @@
 <p><strong>要素</strong>：</p>
 <ol>
 <li>递归点：递归调用的地方。</li>
-<li>递归出口：递归调用结束。<br><br>案例;使用递归从1加到100<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun($num)&#123;</span><br><span class="line">    if($num==1)</span><br><span class="line">      return 1;//递归出口</span><br><span class="line">    return $num+fun($num-1);// 递归点 </span><br><span class="line">&#125;</span><br><span class="line">echo fun(100);</span><br></pre></td></tr></table></figure></li>
+<li>递归出口：递归调用结束。<br><br>案例一：使用递归从1加到100<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun($num)&#123;</span><br><span class="line">    if($num==1)</span><br><span class="line">      return 1;//递归出口</span><br><span class="line">    return $num+fun($num-1);// 递归点 </span><br><span class="line">&#125;</span><br><span class="line">echo fun(100);</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<p>案例二：递归：前10个斐波那契数列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function cal($n)&#123;</span><br><span class="line">    if($n==1 || $ n==2)</span><br><span class="line">      return 1;</span><br><span class="line">    return cal($n-1)+cal($n-2);  </span><br><span class="line">&#125;</span><br><span class="line">//前10个斐波那契数列</span><br><span class="line">for($i=1;$i&lt;10;$i++)</span><br><span class="line">   echo cal($i),&apos;&amp;nbsp&apos;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>在递归调用的时候，有时候可能PHP执行的时间不够用，可以通过php.ini配置文件更改php最大执行时间。</strong></p>
+<h1 id="函数的代理调用"><a href="#函数的代理调用" class="headerlink" title="函数的代理调用"></a>函数的代理调用</h1><p>不直接通过函数名去调用函数，而是通过PHP的内置函数<code>call_user_func_array()</code>来调用函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function concat() &#123;</span><br><span class="line">	$array=func_get_args();</span><br><span class="line">	if(empty($array))&#123;</span><br><span class="line">		echo &apos;您没有传递参数&lt;br&gt;&apos;;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	$str=&apos;&apos;;</span><br><span class="line">	for($i=0,$n=count($array); $i&lt;$n; $i++) &#123;</span><br><span class="line">		$str.=$array[$i];</span><br><span class="line">	&#125;</span><br><span class="line">	echo $str;</span><br><span class="line">&#125;</span><br><span class="line">//concat(1,2,3);</span><br><span class="line">if(isset($_POST[&apos;button&apos;])) &#123;</span><br><span class="line">	$str=$_POST[&apos;str&apos;];</span><br><span class="line">	$array=explode(&apos;,&apos;,$str);</span><br><span class="line">	call_user_func_array(&apos;concat&apos;,$array);  //函数的代理调用</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br><span class="line">&lt;form method=&quot;post&quot; action=&quot;&quot;&gt;</span><br><span class="line">	请输入字符，用逗号分隔：&lt;input type=&quot;text&quot; name=&quot;str&quot;&gt;</span><br><span class="line">	&lt;input type=&quot;submit&quot; name=&quot;button&quot; value=&quot;连接字符串&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="转载声明"><a href="#转载声明" class="headerlink" title="转载声明"></a>转载声明</h1><p>本博客绝大部分文章均来源于互联网，通过本人收集、整理、实践从而形成总结；转载时请注明原链接即可。</p>
+<h1 id="特别声明"><a href="#特别声明" class="headerlink" title="特别声明"></a>特别声明</h1><p>本人在此发布博文（包括但不限于汉字、拼音、阿拉伯字母 、图片、影像，以及前述之各种任意组合等等）均为随意敲击键盘所出，用于检验本人电脑键盘录入、屏幕显示的机械、光电性能，并不代表本人观点。如需要详查请直接与键盘发明者及生产厂商法人代表联系。</p>
 
       
     </div>
@@ -428,6 +434,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/03/20181203/" rel="prev" title="周一摸鱼">
+                周一摸鱼 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -516,7 +526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -538,7 +548,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -587,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#匿名函数的-use"><span class="nav-number">1.</span> <span class="nav-text">匿名函数的 use()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#use-的传值和传址"><span class="nav-number">1.1.</span> <span class="nav-text">use()的传值和传址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名函数的作用"><span class="nav-number">1.2.</span> <span class="nav-text">匿名函数的作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归"><span class="nav-number">2.</span> <span class="nav-text">递归</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#匿名函数的-use"><span class="nav-number">1.</span> <span class="nav-text">匿名函数的 use()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#use-的传值和传址"><span class="nav-number">1.1.</span> <span class="nav-text">use()的传值和传址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名函数的作用"><span class="nav-number">1.2.</span> <span class="nav-text">匿名函数的作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归"><span class="nav-number">2.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数的代理调用"><span class="nav-number">3.</span> <span class="nav-text">函数的代理调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#转载声明"><span class="nav-number">4.</span> <span class="nav-text">转载声明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特别声明"><span class="nav-number">5.</span> <span class="nav-text">特别声明</span></a></li></ol></div>
             
 
           </div>
